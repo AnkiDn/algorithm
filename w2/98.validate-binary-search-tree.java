@@ -67,11 +67,15 @@ class Solution {
         return recur(root);
     }
 
+    //中序遍历 升序
     private boolean recur(TreeNode node) {
         if (node == null) return true;
+        //访问左子树
         if (!recur(node.left)) return false;
+        //当前小于上一个节点就不满足 bst
         if (pre != null && node.val <= pre.val) return false;
         pre = node;
+        //访问右子树
         if (!recur(node.right)) return false;
         return true;
     }
