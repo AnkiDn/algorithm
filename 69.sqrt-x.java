@@ -66,6 +66,7 @@ class Solution {
 
     /**
      * 牛顿迭代法
+     * 
      * @param x
      * @return
      */
@@ -74,10 +75,25 @@ class Solution {
         double pre = 0.0;
         do {
             pre = a;
-            a = ( a + x / a ) / 2;
+            a = (a + x / a) / 2;
         } while (Math.abs(pre - a) >= 1);
         return (int) a;
     }
+
+    /**
+     * 位运算
+     */
+    public int mySqrt3(int x) {
+        long ans = 0;
+        long bit = 1l << 16;
+        while (bit > 0) {
+            ans |= bit;
+            if (ans * ans > x) {
+                ans ^= bit;
+            }
+            bit >>= 1;
+        }
+        return (int) ans;
+    }
 }
 // @lc code=end
-
