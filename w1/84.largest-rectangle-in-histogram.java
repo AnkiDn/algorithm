@@ -9,7 +9,7 @@ import java.util.Stack;
 // @lc code=start
 class Solution {
     /**
-     * 暴力法
+     * 暴力法 超时
      * 
      * @param heights
      * @return
@@ -24,6 +24,32 @@ class Solution {
                 }
                 max = Math.max(max, minHeight * (j - i + 1));
             }
+        }
+        return max;
+    }
+
+    /**
+     * 暴力法优化 
+     */
+    public int largestRectangleArea4(int[] heights) {
+        int max = 0;
+        for (int i = 0; i < heights.length; ++i) {
+            int left = i, right = i;
+            while (left > 0) {
+                --left;
+                if (heights[left] < heights[i]) {
+                    ++left;
+                    break;
+                }
+            }
+            while (right < heights.length - 1) {
+                ++right;
+                if (heights[right] < heights[i]) {
+                    --right;
+                    break;
+                }
+            }
+            max = Math.max(max, (right - left + 1) * heights[i]);
         }
         return max;
     }
