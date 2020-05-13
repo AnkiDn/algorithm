@@ -59,6 +59,18 @@ class Solution:
                     break
             ans = max(ans, heights[i] * (right - left + 1))
         return ans
+
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        ans = 0
+        stack = []
+        heights = [-1] + heights + [-1]
+        for i, h in enumerate(heights):
+            while stack and h < heights[stack[-1]]:
+                cur = stack.pop()
+                left = stack[-1]
+                ans = max(ans, heights[cur] * (i - left - 1))
+            stack.append(i)
+        return ans
             
         
 # @lc code=end
