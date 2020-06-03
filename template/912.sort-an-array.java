@@ -39,6 +39,7 @@ class Solution {
         quickSort(nums, 0, nums.length - 1);
         mergeSort(nums, 0, nums.length - 1);
         insertSort(nums);
+        bubbleSort(nums);
         countSort(nums);
         return nums;
     }
@@ -72,16 +73,23 @@ class Solution {
 
     public void insertSort(int[] nums) {
         for (int i = 1; i < nums.length; ++i) {
-            for (int j = i; j>= 0; --j) {
-                if (j > 0 && nums[j] < nums[j - 1]) {
-                    int temp = nums[j];
-                    nums[j] = nums[j - 1];
-                    nums[j - 1] = temp;
-                } else {
-                    break;
+            int j = i;
+            while(j > 0; nums[j] < nums[j - 1]) {
+                swap(nums, j, j - 1);
+                j--;
+            }
+        }
+    }
+
+    public int[] bubbleSort(int[] nums) {
+        for (int i = nums.length - 1; i >= 0; --i) {// 冒泡得到n-1个最大值
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] > nums[j + 1]) {
+                    swap(nums, j, j + 1) // 交换得到较大值
                 }
             }
         }
+        return nums;
     }
 
     public void countSort(int[] nums) {
