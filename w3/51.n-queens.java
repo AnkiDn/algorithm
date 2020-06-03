@@ -171,6 +171,48 @@ class Solution {
         master[row - col + ansChar.length] = 0;
         slave[row + col] = 0;
     }
+
+
+
+    List<List<String>> result = new ArrayList<>();
+    int row, ld, rd, size;
+    /**
+     * 位运算
+     */
+    public List<List<String>> solveNQueens(int n) {
+        char[][] ansChar = new char[n][n];
+        size = (1 << n) - 1;
+        for (int i = 0; i < n; ++i) Arrays.fill(ansChar[i], '.');
+        backTrack2(0, 0, 0, 0, ansChar);
+        return result;
+    }
+
+    private List<String> charToString (char[][] ansChar) {
+        List<String> temp = new ArrayList<>();
+        for (char[] chars: ansChar) {
+            temp.add(String.valueOf(chars));
+        }
+        return temp;
+    }
+
+    // 路径：board 中小于 row 的那些行都已经成功放置了皇后
+    // 选择列表：第 row 行的所有列都是放置皇后的选择
+    // 结束条件：row 超过 board 的最后一行
+    private void backTrack2 (int level, int row, int ld, int rd, char[][] ansChar) {
+        // 触发结束条件
+        if (size == row) {
+            result.add(charToString(ansChar));
+            return; 
+        }
+        int valid = size & (~(row | ld | rd));
+        while (valid != 0) {
+            int p = valid & -valid;
+            valid -= p;
+            ansChar[level][Integer.numberOfTrailingZeros(p)] = 'Q';
+            backTrack2(level + 1, (row | p), (ld | p) << 1, (rd | p) >>> 1, ansChar);
+            ansChar[level][Integer.numberOfTrailingZeros(p)] = '.';
+        }
+    }
 }
 // @lc code=end
 
