@@ -43,27 +43,23 @@ class Solution {
     public String longestPalindrome3(String s) {
         int n = s.length();
         if (n < 2) return s;
-        int begin = 0;
-        int length = 1;
+        char[] chars = s.toCharArray();
         boolean[][] dp = new boolean[n][n];
-        for (int i = 0; i < n; ++i) {
-            dp[i][i] = true;
-        }
+        int start = 0, len = 1;
         for (int j = 1; j < n; ++j) {
-            for (int i = 0; i < j; ++i) {
-                if (s.charAt(j) != s.charAt(i)) continue;
-                if (j - i + 1 <= 3) {
-                    dp[i][j] = true;
-                } else {
-                    dp[i][j] = dp[i + 1][j - 1];
+            for (int i = j - 1; i >= 0; --i) {
+                if (chars[i] == chars[j]) {
+                    //当chars[i] 和 chars[j] 相同时ij距离小于3，那说明字符串为a,或者aa
+                    //当ij距离大于3，那需要看看里面的字符串是否是回文串
+                    dp[i][j] = (j - i < 3) || dp[i + 1][j - 1];
                 }
-                if (dp[i][j] && (j - i + 1) > length) {
-                    begin = i;
-                    length = j - i + 1;
+                if (dp[i][j] && (j - i + 1) > len) {
+                    start = i;
+                    len = j - i + 1;
                 }
             }
         }
-        return s.substring(begin, begin + length);
+        return s.substring(start, start + len);
     }
 
     /**
