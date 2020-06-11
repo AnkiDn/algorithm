@@ -67,35 +67,57 @@
 
 // @lc code=start
 class Solution {
+    /**
+    暴力 dp
+     */
     public int change(int amount, int[] coins) {
-        int n = coins.length;
-        int[] dp = new int[amount + 1];
-        dp[0] = 1;
-        for (int i = 0; i < n; ++i) {
+        int count = coins.length;
+        int[][] dp = new int[count + 1][amount + 1];
+        //题目说明当amount = 0时 组合数为1
+        for (int i = 0; i <= count; ++i) dp[i][0] = 1;
+        for (int i = 1; i <= count; ++i) {
             for (int j = 1; j <= amount; ++j) {
-                if (j >= coins[i]) {
-                    dp[j] = dp[j] + dp[j - coins[i]];
+                for (int k = 0; k * coins[i - 1] <= j; ++k) {
+                    dp[i][j] += dp[i - 1][j - k * coins[i - 1]];
                 }
+            }
+        }
+        return dp[count][amount];
+    }
+
+    /**
+    暴力优化 dp
+     */
+    public int change2(int amount, int[] coins) {
+        int count = coins.length;
+        int[][] dp = new int[count + 1][amount + 1];
+        //题目说明当amount = 0时 组合数为1
+        for (int i = 0; i <= count; ++i) dp[i][0] = 1;
+        for (int i = 1; i <= count; ++i) {
+            for (int j = 1; j <= amount; ++j) {
+                dp[i][j] = dp[i - 1][j];
+                if (j >= coins[i - 1]) {
+                    dp[i][j] += dp[i][j - coins[i - 1]];
+                }
+            }
+        }
+        return dp[count][amount];
+    }
+
+    /**
+    状态压缩 滚动数组dp
+     */
+    public int change3(int amount, int[] coins) {
+        int count = coins.length;
+        int[] dp = new int[amount + 1];
+        //题目说明当amount = 0时 组合数为1
+        dp[0] = 1;
+        for (int i = 1; i <= count; ++i) {
+            for (int j = coins[i - 1]; j <= amount; ++j) {
+                dp[j] += dp[j - coins[i - 1]];
             }
         }
         return dp[amount];
-    }
-
-    public int change2(int amount, int[] coins) {
-        if (amount == 0) return 1;
-        int n = coins.length;
-        int[][] dp = new int[n + 1][amount + 1];
-        for(int i = 0; i <= n; ++i) dp[i][0] = 1;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 1; j <= amount; ++j) {
-                if (j >= coins[i - 1]) {
-                    dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i - 1]];
-                } else {
-                    dp[i][j] = dp[i - 1][j];
-                }
-            }
-        }
-        return dp[n][amount];
     }
 }
 // @lc code=end
