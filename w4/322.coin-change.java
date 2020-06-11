@@ -41,6 +41,72 @@ import java.util.Queue;
 
 // @lc code=start
 class Solution {
+    
+    /**
+     * dp暴力
+     */
+    public int coinChange(int[] coins, int amount) {
+        int count = coins.length;
+        if (count == 0 || amount == 0) return 0;
+        int[][] dp = new int[count + 1][amount + 1];
+        for (int i = 0; i <= count; ++i) {
+            for (int j = 0; j <= amount; ++j) {
+                dp[i][j] = amount + 1;
+            }
+        }
+        for (int i = 0; i <= count; ++i) dp[i][0] = 0;
+        for (int i = 1; i <= count; ++i) {
+            for (int j = 1; j <= amount; ++j) {
+                for (int k = 0; k * coins[i - 1] <= j; ++k) {
+                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - k * coins[i - 1]] + k);
+                }
+            }
+        }
+        return dp[count][amount] > amount ? -1 : dp[count][amount];
+    }
+
+    /**
+     * 暴力优化
+     */
+    public int coinChange2(int[] coins, int amount) {
+        int count = coins.length;
+        if (count == 0 || amount == 0) return 0;
+        int[][] dp = new int[count + 1][amount + 1];
+        for (int i = 0; i <= count; ++i) {
+            for (int j = 0; j <= amount; ++j) {
+                dp[i][j] = amount + 1;
+            }
+        }
+        for (int i = 0; i <= count; ++i) dp[i][0] = 0;
+        
+        for (int i = 1; i <= count; ++i) {
+            for (int j = 1; j <= amount; ++j) {
+                dp[i][j] = dp[i - 1][j];
+                if (j >= coins[i - 1]) {
+                    dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[count][amount] > amount ? -1 : dp[count][amount];
+    }
+
+    /**
+     * 优化 状态压缩dp
+     */
+    public int coinChange(int[] coins, int amount) {
+        int count = coins.length;
+        if (count == 0 || amount == 0) return 0;
+        int[] dp = new int[amount + 1];
+        for (int j = 1; j <= amount; ++j) dp[j] = amount + 1;
+        for (int i = 1; i <= count; ++i) {
+            for (int j = coins[i - 1]; j <= amount; ++j) {
+                dp[j] = Math.min(dp[j], dp[j - coins[i - 1]] + 1);
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+
+
     int ans = Integer.MAX_VALUE;
     /**
      * 回溯超时
@@ -48,7 +114,7 @@ class Solution {
      * @param amount
      * @return
      */
-    public int coinChange(int[] coins, int amount) {
+    public int coinChange3(int[] coins, int amount) {
         dfs(coins, amount, ans);
         return ans;
     }
@@ -64,32 +130,12 @@ class Solution {
     }
 
     /**
-     * dp
-     * @param coins
-     * @param amount
-     * @return
-     */
-    public int coinChange2(int[] coins, int amount) {
-        int[] dp = new int[amount + 1];
-        Arrays.fill(dp, amount + 1);
-        dp[0] = 0;
-        for (int i = 0; i <= amount; ++i) {
-            for (int j = 0; j < coins.length; ++j) {
-                if (i >= coins[j]) {
-                    dp[i] = Math.min(dp[i - coins[j]] + 1, dp[i]);
-                }
-            }
-        }
-        return dp[amount] > amount ? -1 : dp[amount];
-    }
-
-    /**
      * bfs 超时
      * @param coins
      * @param amount
      * @return
      */
-    public int coinChange3(int[] coins, int amount) {
+    public int coinChange4(int[] coins, int amount) {
         int ans = 0;
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(amount);
