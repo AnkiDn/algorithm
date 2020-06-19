@@ -46,3 +46,6 @@
 面试题.46 | 中等 | 1 | dp | [把数字翻译成字符串](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/) | 无
 739 | 中等 | 1 | 单调栈 | [每日温度](https://leetcode-cn.com/problems/daily-temperatures/) | [Daily Temperatures](https://leetcode-cn.com/problems/daily-temperatures/)
 1300 | 中等 | 1 | 二分 | 转变数组后最接近目标值的数组和 | [Sum of Mutated Array Closest to Target](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/)
+297 | 困难 | 1 | dfs | 二叉树的序列化与反序列化 | [Serialize and Deserialize Binary Tree](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
+1014 | 中等 | 1 | dp | 最佳观光组合 | [Best Sightseeing Pair](https://leetcode-cn.com/problems/best-sightseeing-pair/)
+1028 | 困难 | 1 | dfs | 从先序遍历还原二叉树 | [Recover a Tree From Preorder Traversal](https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal/)
