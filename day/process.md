@@ -49,3 +49,4 @@
 297 | 困难 | 1 | dfs | 二叉树的序列化与反序列化 | [Serialize and Deserialize Binary Tree](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
 1014 | 中等 | 1 | dp | 最佳观光组合 | [Best Sightseeing Pair](https://leetcode-cn.com/problems/best-sightseeing-pair/)
 1028 | 困难 | 1 | dfs | 从先序遍历还原二叉树 | [Recover a Tree From Preorder Traversal](https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal/)
+10 | 困难 | 0 | dp，有限状态机 | 正则表达式匹配 | [Regular Expression Matching](https://leetcode-cn.com/problems/regular-expression-matching/)
