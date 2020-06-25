@@ -12,6 +12,7 @@
 1. [887.鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)
 2. [5.最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
 3. [837.新21点](https://leetcode-cn.com/problems/new-21-game/)
+4. [139. 单词拆分](https://leetcode-cn.com/problems/word-break/)
 
 ## 二分
 
@@ -51,3 +52,4 @@
 1028 | 困难 | 1 | dfs | 从先序遍历还原二叉树 | [Recover a Tree From Preorder Traversal](https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal/)
 10 | 困难 | 0 | dp，有限状态机 | 正则表达式匹配 | [Regular Expression Matching](https://leetcode-cn.com/problems/regular-expression-matching/)
 124 | 困难 | 1 | dfs | 二叉树中的最大路径和 | [Binary Tree Maximum Path Sum](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+139 | 中等 | 1 | dfs-dp| 单词拆分 | [Word Break](https://leetcode-cn.com/problems/word-break/)
