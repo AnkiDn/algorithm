@@ -27,6 +27,10 @@
 
 1. [最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
 
+### 状态机DFA
+1. [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
+2. [65. 有效数字](https://leetcode-cn.com/problems/valid-number/)
+
 题号 | 难易度 | 次数 | level | title | url
 ---|---|---|---|---|---
 560 | 中等 |  1 | 不太熟 | 和为K的子数组 | [subarray-sum-equals-k](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
