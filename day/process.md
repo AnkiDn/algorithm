@@ -57,3 +57,4 @@
 10 | 困难 | 0 | dp，有限状态机 | 正则表达式匹配 | [Regular Expression Matching](https://leetcode-cn.com/problems/regular-expression-matching/)
 124 | 困难 | 1 | dfs | 二叉树中的最大路径和 | [Binary Tree Maximum Path Sum](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
 139 | 中等 | 1 | dfs-dp| 单词拆分 | [Word Break](https://leetcode-cn.com/problems/word-break/)
+41 | 困难 | 1 | hash-置换 | 缺失的第一个正数 | [First Missing Positive](https://leetcode-cn.com/problems/first-missing-positive/)
