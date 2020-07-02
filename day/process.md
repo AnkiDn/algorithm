@@ -61,3 +61,4 @@
 209 | 中等 | 1 | 滑动窗口-前缀和+二分 | 长度最小的子数组 | [Minimum Size Subarray Sum](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
 215 | 中等 | 1 | 快排-堆排| 数组中的第K个最大元素 | [Kth Largest Element in an Array](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
 718 | 中等 | 1 | dp-滑动窗口-二分 | 最长重复子数组 | [Maximum Length of Repeated Subarray](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)
+378 | 中等 | 1 | 二分 | 有序矩阵中第K小的元素 | [Kth Smallest Element in a Sorted Matrix](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/)
