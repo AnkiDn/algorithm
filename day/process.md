@@ -65,3 +65,4 @@
 32 | 困难 | 1 | 栈-dp | 最长有效括号 | [Longest Valid Parentheses](https://leetcode-cn.com/problems/longest-valid-parentheses/)
 44 | 困难 | 1 | dp | 通配符匹配 | [Wildcard Matching](https://leetcode-cn.com/problems/wildcard-matching/)
 63 | 中等 | 1 | dp | 不同路径 II | [Unique Paths II](https://leetcode-cn.com/problems/unique-paths-ii/)
+面试题 17.13 | 中等 | 1 | trie-dp | [恢复空格](https://leetcode-cn.com/problems/re-space-lcci/) | 无
